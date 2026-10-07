@@ -796,6 +796,21 @@ dialog .empty{color:var(--texto)}
 .catalog-photo-card .product-photo-wrap{background:#000}
 .catalog-photo-card .product-photo{background:#000;object-fit:contain;object-position:center;transform:none!important}
 .catalog-photo-card h3{text-transform:none}
+/* Fotografías originales, centradas y completas. */
+.catalog-photo-card .product-photo-wrap{background:#000}
+.catalog-photo-card .product-photo{background:#000;object-fit:contain;object-position:center;transform:none!important}
+.catalog-photo-card h3{text-transform:none}
+/* Fotografía de fondo en Cotiza tu evento. */
+#cotizacion{
+  background-color:#132639;
+  background-image:linear-gradient(rgba(8,20,32,.42),rgba(8,20,32,.52)),url("familia.jpeg");
+  background-size:cover;
+  background-position:center 75%;
+  background-repeat:no-repeat;
+  color:#fff;
+}
+#cotizacion .eyebrow,#cotizacion h2{color:#ffe477}
+#cotizacion>p,#cotizacion .event-fields label,#cotizacion .quote-note,#cotizacion #quoteStatus{color:#fff}
 </style>
 <!-- INICIO: estilos de seguridad añadidos -->
 <style>
@@ -899,7 +914,7 @@ dialog .empty{color:var(--texto)}
         <span class="eyebrow">ELIGE · COMBINA · CELEBRA</span>
         <h2>Catálogo en línea</h2>
       </div>
-      <span class="catalog-total">161 artículos</span>
+      <span class="catalog-total">136 artículos</span>
     </div>
     <p class="demo-note">
       Fotos reales · Elige tus productos y solicita tu cotización
@@ -1154,6 +1169,7 @@ const products = [
     "image": "abejorrobatman.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 90,
     "order": 0
   },
   {
@@ -1162,6 +1178,7 @@ const products = [
     "image": "abejorroelmicky.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 90,
     "order": 1
   },
   {
@@ -1170,6 +1187,7 @@ const products = [
     "image": "abejorromixi.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 90,
     "order": 2
   },
   {
@@ -1178,6 +1196,7 @@ const products = [
     "image": "billete.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 40,
     "order": 3
   },
   {
@@ -1186,6 +1205,7 @@ const products = [
     "image": "bobesponja.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 4
   },
   {
@@ -1194,6 +1214,7 @@ const products = [
     "image": "bolasdeluz.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 100,
     "order": 5
   },
   {
@@ -1202,6 +1223,7 @@ const products = [
     "image": "camelias.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 15,
     "order": 6
   },
   {
@@ -1210,6 +1232,7 @@ const products = [
     "image": "capuchina.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 7
   },
   {
@@ -1218,6 +1241,7 @@ const products = [
     "image": "caramelogrande.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 8
   },
   {
@@ -1226,6 +1250,7 @@ const products = [
     "image": "caramelojumbo.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 9
   },
   {
@@ -1234,6 +1259,7 @@ const products = [
     "image": "caramelomediano.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 10
   },
   {
@@ -1242,6 +1268,7 @@ const products = [
     "image": "charrovolador.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 50,
     "order": 11
   },
   {
@@ -1250,6 +1277,7 @@ const products = [
     "image": "chupacabras.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 12
   },
   {
@@ -1258,6 +1286,7 @@ const products = [
     "image": "cigarros.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 13
   },
   {
@@ -1266,6 +1295,7 @@ const products = [
     "image": "cometaespecialmorado.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 80,
     "order": 14
   },
   {
@@ -1274,6 +1304,7 @@ const products = [
     "image": "crackerboom.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 140,
     "order": 15
   },
   {
@@ -1282,6 +1313,7 @@ const products = [
     "image": "dolar.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 16
   },
   {
@@ -1290,6 +1322,7 @@ const products = [
     "image": "dragonballz.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 17
   },
   {
@@ -1298,6 +1331,7 @@ const products = [
     "image": "elavispon.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 80,
     "order": 18
   },
   {
@@ -1306,6 +1340,7 @@ const products = [
     "image": "elchavo.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 19
   },
   {
@@ -1314,6 +1349,7 @@ const products = [
     "image": "escupidorspider.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 20
   },
   {
@@ -1322,6 +1358,7 @@ const products = [
     "image": "espantasuegras.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 21
   },
   {
@@ -1330,6 +1367,7 @@ const products = [
     "image": "flash.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 120,
     "order": 22
   },
   {
@@ -1338,6 +1376,7 @@ const products = [
     "image": "floreromulticolor.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 23
   },
   {
@@ -1346,6 +1385,7 @@ const products = [
     "image": "frozen.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 24
   },
   {
@@ -1354,6 +1394,7 @@ const products = [
     "image": "harleyquinn.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 25
   },
   {
@@ -1362,6 +1403,7 @@ const products = [
     "image": "horadeaventura.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 26
   },
   {
@@ -1370,6 +1412,7 @@ const products = [
     "image": "juguitos.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 27
   },
   {
@@ -1378,6 +1421,7 @@ const products = [
     "image": "jumping.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 28
   },
   {
@@ -1386,6 +1430,7 @@ const products = [
     "image": "lallorona.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 50,
     "order": 29
   },
   {
@@ -1394,6 +1439,7 @@ const products = [
     "image": "liloystitch.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 30
   },
   {
@@ -1402,6 +1448,7 @@ const products = [
     "image": "luciernagas.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 31
   },
   {
@@ -1410,6 +1457,7 @@ const products = [
     "image": "mamut.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 32
   },
   {
@@ -1418,6 +1466,7 @@ const products = [
     "image": "maruchan.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 33
   },
   {
@@ -1426,6 +1475,7 @@ const products = [
     "image": "mazapan.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 34
   },
   {
@@ -1434,6 +1484,7 @@ const products = [
     "image": "megaboladehumo.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 35
   },
   {
@@ -1442,6 +1493,7 @@ const products = [
     "image": "mexicanitos.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 36
   },
   {
@@ -1450,6 +1502,7 @@ const products = [
     "image": "minadecracker.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 37
   },
   {
@@ -1458,6 +1511,7 @@ const products = [
     "image": "minions.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 70,
     "order": 38
   },
   {
@@ -1466,6 +1520,7 @@ const products = [
     "image": "minionscracker.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 39
   },
   {
@@ -1474,6 +1529,7 @@ const products = [
     "image": "miniovni.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 40,
     "order": 40
   },
   {
@@ -1482,6 +1538,7 @@ const products = [
     "image": "misiles.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 80,
     "order": 41
   },
   {
@@ -1490,6 +1547,7 @@ const products = [
     "image": "mosaico.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 42
   },
   {
@@ -1498,6 +1556,7 @@ const products = [
     "image": "olaf.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 70,
     "order": 43
   },
   {
@@ -1506,6 +1565,7 @@ const products = [
     "image": "orugas.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 44
   },
   {
@@ -1514,6 +1574,7 @@ const products = [
     "image": "ovni.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 45
   },
   {
@@ -1522,6 +1583,7 @@ const products = [
     "image": "ovnigalactico.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 46
   },
   {
@@ -1530,6 +1592,7 @@ const products = [
     "image": "ovnigorila.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 47
   },
   {
@@ -1538,6 +1601,7 @@ const products = [
     "image": "patitos.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 48
   },
   {
@@ -1546,6 +1610,7 @@ const products = [
     "image": "peppacracker.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 49
   },
   {
@@ -1554,6 +1619,7 @@ const products = [
     "image": "pistolas.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 50
   },
   {
@@ -1562,6 +1628,7 @@ const products = [
     "image": "pitufos.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 51
   },
   {
@@ -1579,6 +1646,7 @@ const products = [
     "image": "rosa.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 110,
     "order": 53
   },
   {
@@ -1587,6 +1655,7 @@ const products = [
     "image": "rosadecolores.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 120,
     "order": 54
   },
   {
@@ -1595,6 +1664,7 @@ const products = [
     "image": "silbato.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 50,
     "order": 55
   },
   {
@@ -1603,6 +1673,7 @@ const products = [
     "image": "silbatoloco.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 56
   },
   {
@@ -1611,6 +1682,7 @@ const products = [
     "image": "sonic.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 57
   },
   {
@@ -1619,6 +1691,7 @@ const products = [
     "image": "tanquedeguerra.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 60,
     "order": 58
   },
   {
@@ -1627,6 +1700,7 @@ const products = [
     "image": "thewalkingdead.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 59
   },
   {
@@ -1635,6 +1709,7 @@ const products = [
     "image": "torbellino.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 60
   },
   {
@@ -1643,6 +1718,7 @@ const products = [
     "image": "tornado.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 61
   },
   {
@@ -1651,6 +1727,7 @@ const products = [
     "image": "toroloco.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 80,
     "order": 62
   },
   {
@@ -1659,6 +1736,7 @@ const products = [
     "image": "trabucomini.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 30,
     "order": 63
   },
   {
@@ -1667,6 +1745,7 @@ const products = [
     "image": "trabucomixi.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 45,
     "order": 64
   },
   {
@@ -1675,14 +1754,17 @@ const products = [
     "image": "trompitochiflador.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 35,
     "order": 65
   },
   {
     "id": "FOTO-trompos",
     "name": "Trompos",
+    "name": "Pirinoila",
     "image": "trompos.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 30,
     "order": 66
   },
   {
@@ -1691,6 +1773,7 @@ const products = [
     "image": "varadeluz.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 70,
     "order": 67
   },
   {
@@ -1699,6 +1782,7 @@ const products = [
     "image": "varapajarera.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 70,
     "order": 68
   },
   {
@@ -1707,6 +1791,7 @@ const products = [
     "image": "varaurba.jpeg",
     "category": "Productos",
     "price": null,
+    "price": 80,
     "order": 69
   },
   {
@@ -2203,6 +2288,94 @@ const products = [
     "price": null,
     "order": 124,
     "video": "https://www.youtube.com/watch?v=F6X6bKGq7TE"
+  },
+  {
+    "id": "FOTO-alacranes",
+    "name": "Alacranes",
+    "image": "alacranes.jpeg",
+    "category": "Productos",
+    "price": 35,
+    "order": 125
+  },
+  {
+    "id": "FOTO-arañitas",
+    "name": "Arañitas",
+    "image": "arañitas.jpeg",
+    "category": "Productos",
+    "price": 35,
+    "order": 126
+  },
+  {
+    "id": "FOTO-buscapie",
+    "name": "Buscapié",
+    "image": "buscapie.jpeg",
+    "category": "Productos",
+    "price": 90,
+    "order": 127
+  },
+  {
+    "id": "FOTO-catarinas",
+    "name": "Catarinas",
+    "image": "catarinas.jpeg",
+    "category": "Productos",
+    "price": 50,
+    "order": 128
+  },
+  {
+    "id": "FOTO-duvalin",
+    "name": "Duvalín",
+    "image": "duvalin.jpeg",
+    "category": "Productos",
+    "price": 35,
+    "order": 129
+  },
+  {
+    "id": "FOTO-misilgrande",
+    "name": "Misil grande",
+    "image": "misilgrande.jpeg",
+    "category": "Productos",
+    "price": 300,
+    "order": 130
+  },
+  {
+    "id": "FOTO-paletas",
+    "name": "Paletas",
+    "image": "paletas.jpeg",
+    "category": "Productos",
+    "price": 50,
+    "order": 131
+  },
+  {
+    "id": "FOTO-palomadeluz",
+    "name": "Paloma de luz",
+    "image": "palomadeluz.jpeg",
+    "category": "Productos",
+    "price": 70,
+    "order": 132
+  },
+  {
+    "id": "FOTO-patos",
+    "name": "Patos",
+    "image": "patos.jpeg",
+    "category": "Productos",
+    "price": 60,
+    "order": 133
+  },
+  {
+    "id": "FOTO-tortugas",
+    "name": "Tortugas",
+    "image": "tortugas.jpeg",
+    "category": "Productos",
+    "price": 50,
+    "order": 134
+  },
+  {
+    "id": "FOTO-trabucoespecial",
+    "name": "Trabuco especial",
+    "image": "trabucoespecial.jpeg",
+    "category": "Productos",
+    "price": 60,
+    "order": 135
   }
 ];
 const $ = id => document.getElementById(id);
@@ -2251,16 +2424,31 @@ function notify(message){
 function rows(){
   return products.filter(p => cart[p.id]);
 }
+function hasPrice(p){ return typeof p.price === "number" && Number.isFinite(p.price) && p.price >= 0; }
+function lineTotal(p){ return Math.round(p.price * 100) * cart[p.id] / 100; }
+function cartSummary(){
+  const selected = rows();
+  const priced = selected.filter(hasPrice);
+  const total = priced.reduce((sum,p) => sum + Math.round(p.price * 100) * cart[p.id],0) / 100;
+  const pending = selected.some(p => !hasPrice(p));
+  if(pending && !priced.length) return "Por cotizar";
+  return money(total) + (pending ? " + artículos por cotizar" : "");
+}
 function renderProducts(){
   const query = normalize($("search").value.trim());
   const filtered = products.filter(p => (category === "Todos" || p.category === category) && normalize(p.name + " " + p.category).includes(query));
   if($("sort").value === "name") filtered.sort((a,b) => a.name.localeCompare(b.name,"es"));
+  if(["low","high"].includes($("sort").value)) filtered.sort((a,b) => {
+    if(!hasPrice(a)) return hasPrice(b) ? 1 : 0;
+    if(!hasPrice(b)) return -1;
+    return $("sort").value === "low" ? a.price-b.price : b.price-a.price;
+  });
   $("resultCount").textContent = filtered.length + " productos";
   $("products").innerHTML = filtered.map(p =>
     '<article class="product catalog-photo-card"><div class="product-art product-photo-wrap">' +
     '<img class="product-photo" src="' + escapeHTML(p.image) + '" alt="' + escapeHTML(p.name) + '" loading="lazy" decoding="async"></div>' +
     '<div class="product-info"><span class="product-cat">' + escapeHTML(p.category) + '</span><h3>' + escapeHTML(p.name) + '</h3>' +
-    '<div class="buy-row"><span class="price"><small>Por cotizar</small></span><button type="button" class="add" data-add="' + escapeHTML(p.id) + '" aria-label="Agregar ' + escapeHTML(p.name) + '">+</button></div>' +
+    '<div class="buy-row"><span class="price">' + (hasPrice(p) ? money(p.price) : '<small>Por cotizar</small>') + '</span><button type="button" class="add" data-add="' + escapeHTML(p.id) + '" aria-label="Agregar ' + escapeHTML(p.name) + '">+</button></div>' +
     (p.category === 'Baterías' && p.video ? '<a class="battery-video" href="' + escapeHTML(p.video) + '" target="_blank" rel="noopener noreferrer" aria-label="Ver video de ' + escapeHTML(p.name) + ' en YouTube (abre otra pestaña)">Ver video</a>' : '') +
     '</div></article>'
   ).join("");
@@ -2278,13 +2466,13 @@ function renderCart(){
   $("count").textContent = count;
   $("mobileCount").textContent = count;
   $("cartCount").textContent = "("+count+")";
-  $("total").textContent = "Por cotizar";
+  $("total").textContent = cartSummary();
   $("cartItems").innerHTML = rows().map(p => `
     <div class="cart-row">
       <img class="cart-photo" src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">
       <div>
         <h3>${escapeHTML(p.name)}</h3>
-        <div class="cart-price">Por cotizar</div>
+        <div class="cart-price">${hasPrice(p) ? money(p.price)+" c/u · Importe: "+money(lineTotal(p)) : "Por cotizar"}</div>
         <div class="cart-controls">
           <button
             type="button"
@@ -2366,7 +2554,7 @@ function sendWhatsApp(message,statusId){
 }
 function orderLines(){
   return rows().map(p =>
-    cart[p.id]+" × "+p.name+" | Por cotizar"
+    cart[p.id]+" × "+p.name+" | "+(hasPrice(p) ? money(p.price)+" c/u | Importe: "+money(lineTotal(p)) : "Por cotizar")
   );
 }
 $("categories").innerHTML = ["Todos","Baterías"].map(name => `
@@ -2457,7 +2645,7 @@ $("orderForm").addEventListener("submit",event => {
     "",
     ...orderLines(),
     "",
-    "Total: por cotizar",
+    "Total: "+cartSummary(),
     "Notas: "+$("notes").value.trim(),
     "¿Me confirman disponibilidad y precio?"
   ].join("\n");
@@ -2492,7 +2680,7 @@ form.addEventListener("submit",event => {
     "",
     "ARTÍCULOS",
     ...(rows().length ? orderLines() : ["Sin artículos seleccionados. Solicito orientación."]),
-    ...(rows().length ? ["Total: por cotizar"] : []),
+    ...(rows().length ? ["Total: "+cartSummary()] : []),
     "",
     "¿Me ayudan con la cotización?"
   ].join("\n");
