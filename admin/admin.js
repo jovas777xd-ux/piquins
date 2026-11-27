@@ -327,7 +327,10 @@ async function cargarProductos() {
       resultados.push(...(data || []));
       if (!data || data.length < paso) break;
     }
-    inventario = resultados;
+    // Los 218 productos del repositorio equivocado se conservan únicamente
+    // como respaldo en Supabase hasta ejecutar la limpieza autorizada.
+    // Nunca deben mostrarse ni editarse desde el panel del negocio correcto.
+    inventario = resultados.filter(p => !/^(PHOTO-|BAT-)/.test(String(p.codigo || "")));
     informar("productos", "");
     actualizarCategorias();
     dibujarProductos();
