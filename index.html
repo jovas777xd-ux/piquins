@@ -1486,6 +1486,39 @@ $("garland").innerHTML = `
   </svg>
 `;
 // El panel privado y el catalogo publico leen exactamente el mismo inventario.
+// Cuando una foto de GitHub Pages falle, probar el mismo archivo original
+// desde raw.githubusercontent.com; nunca usar imágenes de otro producto.
+function respaldoGithubFoto(url) {
+  try {
+    const origen = new URL(url, location.href);
+    if (origen.hostname !== "jovas777xd-ux.github.io") return null;
+    const m = origen.pathname.match(/^\/(piquins|the-piquins)\/([^/]+)$/);
+    if (!m) return null;
+    const nombre = decodeURIComponent(m[2]);
+    if (!nombre || nombre.includes("/") || nombre.includes("\\") || nombre.includes("..")) return null;
+    return "https://raw.githubusercontent.com/jovas777xd-ux/" +
+      m[1] + "/main/" + encodeURIComponent(nombre);
+  } catch (error) { return null; }
+}
+document.addEventListener("error", (evento) => {
+  const img = evento.target;
+  if (!(img instanceof HTMLImageElement) ||
+      !img.matches("img.product-photo, img.cart-photo")) return;
+  if (!img.dataset.intentoRaw) {
+    const alterna = respaldoGithubFoto(img.currentSrc || img.src);
+    if (alterna) {
+      img.dataset.intentoRaw = "si";
+      img.src = alterna;
+      return;
+    }
+  }
+  const placeholder = document.createElement("span");
+  placeholder.className = img.classList.contains("cart-photo")
+    ? "cart-photo" : "product-no-photo";
+  placeholder.textContent = "Foto no disponible";
+  img.replaceWith(placeholder);
+}, true);
+
 function fotoPublica(valor) {
   const foto = String(valor || "").trim();
   if (!foto) return "";
