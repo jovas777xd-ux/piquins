@@ -17,15 +17,50 @@ let inventario = [];
 // Fotos originales: en The Piquins están como archivos .jpeg de GitHub,
 // por lo que NO es necesario copiarlas a Supabase Storage.
 function fotoProducto(producto) {
-  const foto = producto.imagen || "";
+  const foto = String(producto.imagen || "").trim();
   if (!foto) return null;
-  // Solo las URL absolutas apuntan directamente a Supabase Storage.
-  // Los nombres de archivo .jpeg viven en la carpeta padre de /admin/.
   if (/^https?:\/\//i.test(foto)) return foto;
-  // Mantener espacios, mayúsculas y tildes presentes en nombres originales.
-  if (/^(?:\\.|\/|https?:)/i.test(foto) || foto.includes("..") || foto.includes("/") || foto.includes("\\\\")) return null;
+  // No permitir rutas fuera de los archivos originales.
+  if (foto.includes("/") || foto.includes("\\") || foto.includes("..") || foto === ".") return null;
+  // Los registros antiguos PHOTO-/BAT- son respaldo del OTRO repositorio.
+  // Conservar su imagen original en lugar de buscarla erróneamente en /piquins/.
+  if (/^(PHOTO-|BAT-)/.test(producto.codigo || "")) {
+    return "https://jovas777xd-ux.github.io/the-piquins/" + encodeURIComponent(foto);
+  }
   return "../" + encodeURIComponent(foto);
 }
+
+// Si GitHub Pages no sirve un archivo original, intentar el mismo archivo
+// mediante raw.githubusercontent.com, sin cambiar la imagen en Supabase.
+function respaldoGithubFoto(url) {
+  try {
+    const origen = new URL(url, location.href);
+    if (origen.hostname !== "jovas777xd-ux.github.io") return null;
+    const ruta = origen.pathname.match(/^\/(piquins|the-piquins)\/([^/]+)$/);
+    if (!ruta) return null;
+    const nombre = decodeURIComponent(ruta[2]);
+    if (!nombre || nombre.includes("/") || nombre.includes("\\") || nombre.includes("..")) return null;
+    return "https://raw.githubusercontent.com/jovas777xd-ux/" +
+      ruta[1] + "/main/" + encodeURIComponent(nombre);
+  } catch (error) { return null; }
+}
+
+// Al agotarse ambas fuentes se muestra un texto, no un icono de imagen rota.
+document.addEventListener("error", (evento) => {
+  const img = evento.target;
+  if (!(img instanceof HTMLImageElement) || !img.closest(".product-thumb")) return;
+  if (!img.dataset.intentoRaw) {
+    const alterna = respaldoGithubFoto(img.currentSrc || img.src);
+    if (alterna) {
+      img.dataset.intentoRaw = "si";
+      img.src = alterna;
+      return;
+    }
+  }
+  const miniatura = img.closest(".product-thumb");
+  img.remove();
+  if (miniatura) miniatura.textContent = "Foto no disponible";
+}, true);
 
 let administradoraAutorizada = false;
 let comprobandoAcceso = false;
@@ -358,10 +393,6 @@ function dibujarProductos() {
       img.src = foto;
       img.alt = "";
       img.loading = "lazy";
-      img.addEventListener("error", () => {
-        img.remove();
-        miniatura.textContent = "Sin foto";
-      }, { once: true });
       miniatura.append(img);
     } else miniatura.textContent = "Sin foto";
 
