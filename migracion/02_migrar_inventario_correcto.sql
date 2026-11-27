@@ -2,6 +2,7 @@
 -- No borra datos; respalda el inventario antes de cambiar visibilidad.
 -- No afecta ALEXVAL ni ELEANA. No sobrescribe productos ya existentes.
 -- Los archivos de fotos oficiales provienen de /piquins/, no /the-piquins/.
+-- Se castea precio a numeric porque los VALUES incluyen precios entre comillas y NULL.
 BEGIN;
 CREATE TABLE IF NOT EXISTS public.piquins_respaldo_inventario_20261127 AS
 SELECT * FROM public.piquins_productos WITH NO DATA;
@@ -188,7 +189,7 @@ VALUES
   ('FOTO-trabucodecharola', 'Trabuco de charola', 'Productos', '35', 'https://jovas777xd-ux.github.io/piquins/trabucodecharola.jpeg', NULL)
 )
 INSERT INTO public.piquins_productos(codigo,nombre,categoria,precio,imagen,video,destacado,activo)
-SELECT codigo,nombre,categoria,precio,imagen,video,false,true FROM reales
+SELECT codigo,nombre,categoria,precio::numeric,imagen,video,false,true FROM reales
 ON CONFLICT(codigo) DO NOTHING;
 UPDATE public.piquins_productos SET activo=false
 WHERE codigo IN (
